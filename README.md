@@ -61,7 +61,10 @@ cp config.json.example config.json
       "name": "lmstudio",
       "displayName": "本地LMStudio",
       "apiKey": "lmstudio-token",
-      "apiBase": "http://192.168.0.101:12345",
+      "apiBase": "http://192.168.1.100:12345",
+      "keyEnvVar": "ANTHROPIC_AUTH_TOKEN",
+      "baseUrlEnvVar": "ANTHROPIC_BASE_URL",
+      "defaultModel": "qwen/qwen3.6-35b-a3b"
       "keyEnvVar": "ANTHROPIC_AUTH_TOKEN",
       "baseUrlEnvVar": "ANTHROPIC_BASE_URL",
       "defaultModel": "qwen/qwen3.6-35b-a3b",
@@ -101,7 +104,7 @@ cp config.json.example config.json
   "name": "lmstudio",
   "displayName": "本地LMStudio",
   "apiKey": "你的 LM Studio Token",
-  "apiBase": "http://192.168.0.101:12345",
+  "apiBase": "http://192.168.1.100:12345",
   "keyEnvVar": "ANTHROPIC_AUTH_TOKEN",
   "baseUrlEnvVar": "ANTHROPIC_BASE_URL",
   "defaultModel": "qwen/qwen3.6-35b-a3b"
@@ -117,7 +120,7 @@ NewAPI 需要填入你在后台配置的模型名称：
   "name": "newapi",
   "displayName": "本地NewAPI",
   "apiKey": "你的 NewAPI Key",
-  "apiBase": "http://192.168.0.2:3000/v1/message",
+  "apiBase": "http://192.168.1.200:3000/v1/message",
   "defaultModel": "qwen3.5-flash"
 }
 ```
