@@ -1,0 +1,17 @@
+{
+  "name": "claude-launcher",
+  "version": "1.0.0",
+  "description": "TUI launcher for Claude Code with directory, API config, and argument switching",
+  "main": "index.js",
+  "bin": {
+    "claude-launcher": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "build": "pkg index.js -t node18-win-x64 -o claude-launcher.exe"
+  },
+  "keywords": ["claude", "claude-code", "launcher", "tui", "minimax", "lmstudio", "openai"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}

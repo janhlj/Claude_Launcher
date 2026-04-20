@@ -1,0 +1,68 @@
+{
+  "workingDirectories": [
+    "~",
+    "/c/Projects/my-project"
+  ],
+  "apiConfigs": [
+    {
+      "name": "minimax",
+      "displayName": "⬆ MiniMax (默认)",
+      "apiKey": "",
+      "apiBase": "https://api.minimax.chat/v1",
+      "defaultModel": "MiniMax-M2.7-highspeed",
+      "envVars": {}
+    },
+    {
+      "name": "alibaba-coding",
+      "displayName": "⬆ 阿里云编程",
+      "apiKey": "",
+      "apiBase": "https://coding.dashscope.aliyuncs.com/apps/anthropic",
+      "defaultModel": "qwen3.6-plus",
+      "keyEnvVar": "ANTHROPIC_AUTH_TOKEN",
+      "baseUrlEnvVar": "ANTHROPIC_BASE_URL",
+      "envVars": {}
+    },
+    {
+      "name": "alibaba",
+      "displayName": "⬆ 阿里百炼",
+      "apiKey": "",
+      "apiBase": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "defaultModel": "qwen3.6-plus",
+      "envVars": {}
+    },
+    {
+      "name": "anthropic",
+      "displayName": "Anthropic",
+      "apiKey": "",
+      "apiBase": "https://api.anthropic.com",
+      "defaultModel": "",
+      "envVars": {}
+    },
+    {
+      "name": "openai",
+      "displayName": "OpenAI",
+      "apiKey": "",
+      "apiBase": "https://api.openai.com/v1",
+      "defaultModel": "",
+      "envVars": {}
+    }
+  ],
+  "launchArguments": [
+    {
+      "name": "--no-cache",
+      "description": "禁用上下文缓存",
+      "requiresValue": false
+    },
+    {
+      "name": "--dangerously-skip-permissions",
+      "description": "跳过权限确认",
+      "requiresValue": false
+    },
+    {
+      "name": "--resume",
+      "description": "恢复指定会话",
+      "requiresValue": true
+    }
+  ],
+  "claudeCommand": "claude"
+}
