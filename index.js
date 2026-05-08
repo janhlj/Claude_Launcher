@@ -1,10 +1,9 @@
 #!/usr/bin/env node
-const { loadConfig, getUserConfigPath } = require('./config');
+const { loadConfig } = require('./config');
 const { runMenu } = require('./launcher');
 
 async function main() {
   const cfg = loadConfig();
-  const configPath = getUserConfigPath();
 
   console.log('\x1b[36m╭────────────────────────────────────────────────────╮\x1b[0m');
   console.log('\x1b[36m│\x1b[0m  \x1b[1m\x1b[36mClaude Launcher\x1b[0m\x1b[0m                               \x1b[36m│\x1b[0m');

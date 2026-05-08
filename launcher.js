@@ -58,10 +58,16 @@ async function runMenu(cfg) {
     const s1active = cursor === 0;
     console.log(`  ${s1active ? C.bright + C.cyan : C.dim}▶ ${sec[0]}${C.reset}  ${C.dim}${cursors[0]}${C.reset}`);
     cfg.workingDirectories.forEach((dir, i) => {
-      const absDir = expandPath(dir);
+      const absDir = expandPath(dir, process.cwd());
       const mark = i === selectedDir ? `${C.green}➤${C.reset} ` : '   ';
       const style = s1active && i === selectedDir ? C.bright + C.white : C.dim;
-      console.log(`    ${mark}${style}[${i + 1}] ${dir}${C.reset}  ${C.dim}→ ${absDir}${C.reset}`);
+      let displayPath = absDir;
+      let currentTag = '';
+      if (dir === '~' || dir === '~/') {
+        displayPath = process.cwd();
+        currentTag = ` ${C.yellow}(当前目录)${C.reset}`;
+      }
+      console.log(`    ${mark}${style}[${i + 1}] ${dir}${C.reset}  ${C.dim}→ ${displayPath}${currentTag}${C.reset}`);
     });
     console.log('');
 
@@ -129,7 +135,7 @@ async function runMenu(cfg) {
       if (cursor === 1 && selectedAPI < cfg.apiConfigs.length - 1) selectedAPI++;
       if (cursor === 2) {
         const idx = selectedArgIdx(cfg, selectedArgs);
-        if (idx < cfg.launchArguments.length - 1) selectedArgs[idx] = false, selectedArgs[idx + 1] = false;
+        if (idx < cfg.launchArguments.length - 1) selectedArgs[idx] = false, selectedArgs[idx + 1] = true;
       }
     } else if (cmd === 'h' || cmd === 'z') {
       // left / select prev in current section
@@ -137,7 +143,7 @@ async function runMenu(cfg) {
       if (cursor === 1 && selectedAPI > 0) selectedAPI--;
       if (cursor === 2) {
         const idx = selectedArgIdx(cfg, selectedArgs);
-        if (idx > 0) selectedArgs[idx] = false, selectedArgs[idx - 1] = false;
+        if (idx > 0) selectedArgs[idx] = false, selectedArgs[idx - 1] = true;
       }
     } else if (cmd === ' ' || cmd === 't') {
       // toggle current arg
@@ -186,7 +192,7 @@ async function runMenu(cfg) {
 
 async function launch(cfg, dirIdx, apiIdx, selectedArgs, argInputValues) {
   const api = cfg.apiConfigs[apiIdx];
-  const dir = expandPath(cfg.workingDirectories[dirIdx]);
+  const dir = expandPath(cfg.workingDirectories[dirIdx], process.cwd());
 
   console.log(`\n${C.cyan}🚀 启动 Claude...${C.reset}`);
   console.log(`${C.dim}   目录: ${dir}${C.reset}`);

@@ -15,17 +15,23 @@ TUI 启动器，通过菜单选择工作目录、API 配置和启动参数，然
 
 ```bash
 npm install
+npm link
 ```
+
+安装后全局命令为 `cl`。
 
 ## 配置
 
-复制配置文件模板：
+全局配置路径：`~/.config/claude-launcher/config.json`
+
+首次使用可复制模板：
 
 ```bash
-cp config.json.example config.json
+mkdir -p ~/.config/claude-launcher
+cp config.json.example ~/.config/claude-launcher/config.json
 ```
 
-然后编辑 `config.json`，填写你的 API Key 和工作目录。
+编辑 `~/.config/claude-launcher/config.json`，填写你的 API Key 和工作目录。
 
 ### config.json 说明
 
@@ -62,9 +68,6 @@ cp config.json.example config.json
       "displayName": "本地LMStudio",
       "apiKey": "lmstudio-token",
       "apiBase": "http://192.168.1.100:12345",
-      "keyEnvVar": "ANTHROPIC_AUTH_TOKEN",
-      "baseUrlEnvVar": "ANTHROPIC_BASE_URL",
-      "defaultModel": "qwen/qwen3.6-35b-a3b"
       "keyEnvVar": "ANTHROPIC_AUTH_TOKEN",
       "baseUrlEnvVar": "ANTHROPIC_BASE_URL",
       "defaultModel": "qwen/qwen3.6-35b-a3b",
@@ -126,6 +129,12 @@ NewAPI 需要填入你在后台配置的模型名称：
 ```
 
 ## 使用
+
+```bash
+cl
+```
+
+或直接运行：
 
 ```bash
 node index.js

@@ -4,7 +4,8 @@
   "description": "TUI launcher for Claude Code with directory, API config, and argument switching",
   "main": "index.js",
   "bin": {
-    "claude-launcher": "./index.js"
+    "claude-launcher": "./index.js",
+    "cl": "./index.js"
   },
   "scripts": {
     "start": "node index.js",
